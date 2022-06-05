@@ -1,6 +1,5 @@
-use std::cmp::Ordering;
-use image::{DynamicImage, GenericImageView};
-use std::{cmp, env};
+use image::GenericImageView;
+use std::cmp;
 use image::imageops::contrast;
 use ndarray::{array, Array2};
 
@@ -12,13 +11,13 @@ fn main() {
     let input2 = load_image("./images/houseTest.jpg".to_string());
 
     let edges = edge_detect(&input2);
-    edges.save("./images/edgeDetected.png");
+    edges.save("./images/edgeDetected.png").unwrap();
 
     let contrast_enhanced = contrast(&input2, 4.);
-    contrast_enhanced.save("./images/contrastEnhanced.png");
+    contrast_enhanced.save("./images/contrastEnhanced.png").unwrap();
 
     let brightness_enhanced = adjust_brightness(&input2, 50);
-    brightness_enhanced.save("./images/brightnessEnhanced.png");
+    brightness_enhanced.save("./images/brightnessEnhanced.png").unwrap();
 }
 
 
