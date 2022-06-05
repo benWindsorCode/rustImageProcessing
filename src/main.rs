@@ -13,6 +13,12 @@ fn main() {
 
     let edges = edge_detect(&input2);
     edges.save("./images/edgeDetected.png");
+
+    let contrast_enhanced = contrast(&input2, 4.);
+    contrast_enhanced.save("./images/contrastEnhanced.png");
+
+    let brightness_enhanced = adjust_brightness(&input2, 50);
+    brightness_enhanced.save("./images/brightnessEnhanced.png");
 }
 
 

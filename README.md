@@ -8,7 +8,15 @@ Baseline house image (source: https://www.housebeautiful.com/lifestyle/a31897953
 
 House image with edge detection:
 
-![Baseline House Image](./images/edgeDetected.png)
+![House Image Edge Detected](./images/edgeDetected.png)
+
+With brightness increased:
+
+![House Image Brightness Increased](./images/brightnessEnhanced.png)
+
+With contrast increased:
+
+![House Image Contrast Increased](./images/contrastEnhanced.png)
 
 Baseline face image:
 
