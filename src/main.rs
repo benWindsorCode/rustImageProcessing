@@ -11,17 +11,18 @@ fn main() {
     let input1 = load_image("./images/benWindsorCodeIcon.jpg".to_string());
     let input2 = load_image("./images/houseTest.jpg".to_string());
 
-    println!("Received image of dimensions: {:?}", input1.dimensions());
+    let edges = edge_detect(&input2);
+    edges.save("./images/edgeDetected.png");
+}
 
-    let cleaned = contrast(&input2, 2.);
+fn edge_detect(input: &ImageBuffer) -> ImageBuffer {
+    let cleaned = contrast(input, 2.);
     let sharpened = sharpen(&cleaned, 10.);
-    let output2_x = x_grad(&sharpened);
-    let output2_y = y_grad(&sharpened);
-    output2_x.save("./images/x_grad_after_sharpen.png");
-    output2_y.save("./images/y_grad_after_sharpen.png");
 
-    let output2_x_and_y = image_add(&output2_x, &output2_y);
-    output2_x_and_y.save("./images/x_and_y_grad_after_sharpen.png");
+    let gradient_x = x_grad(&sharpened);
+    let gradient_y = y_grad(&sharpened);
+
+    image_add(&gradient_x, &gradient_y)
 }
 
 fn x_grad(input: &ImageBuffer) -> ImageBuffer {
